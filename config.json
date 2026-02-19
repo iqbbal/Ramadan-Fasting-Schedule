@@ -1,0 +1,12 @@
+{
+    "location_mode": "auto",
+    "city": "",
+    "country": "",
+    "latitude": null,
+    "longitude": null,
+    "calculation_method": 20,
+    "notification_before_imsak_minutes": 10,
+    "notification_at_iftar": true,
+    "theme": "dark",
+    "auto_start": false
+}
