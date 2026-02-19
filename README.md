@@ -1,6 +1,6 @@
 # 🌙 Ramadan Fasting Schedule — Windows Taskbar App
 
-Aplikasi system tray Windows yang menampilkan jadwal puasa Ramadhan secara real-time berdasarkan lokasi.
+A Windows system tray application that displays the Ramadan fasting schedule in real-time based on your location.
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
 ![Windows](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)
@@ -14,24 +14,24 @@ Aplikasi system tray Windows yang menampilkan jadwal puasa Ramadhan secara real-
 
 ---
 
-## ✨ Fitur
+## ✨ Features
 
-| Fitur | Deskripsi |
-|-------|-----------|
-| 🌙 **System Tray Icon** | Ikon bulan sabit dengan countdown dinamis |
-| 📋 **Dark Menu** | Klik kiri → popup menu gelap bertema modern |
-| 📋 **Native Menu** | Klik kanan → menu native Windows dengan jadwal lengkap |
-| 📍 **Auto Lokasi** | Deteksi lokasi otomatis via IP geolocation |
-| 🏙️ **Pilihan Kota** | 20+ kota Indonesia & 10 kota internasional |
-| 🔔 **Notifikasi** | Desktop notification untuk Imsak & Berbuka |
-| ⏰ **Countdown** | Hitung mundur ke waktu Imsak / Berbuka |
-| 🕌 **Jadwal Lengkap** | 7 waktu shalat (Imsak, Subuh, Syuruq, Dzuhur, Ashar, Maghrib, Isya) |
-| 🔄 **Auto Refresh** | Update otomatis setiap 30 detik |
-| 🔒 **Single Instance** | Hanya 1 instance berjalan, otomatis tutup yang lama |
+| Feature | Description |
+|---------|-------------|
+| 🌙 **System Tray Icon** | Crescent moon icon with dynamic countdown |
+| 📋 **Dark Menu** | Left-click → modern dark-themed popup menu |
+| 📋 **Native Menu** | Right-click → native Windows menu with full schedule |
+| 📍 **Auto Location** | Automatic location detection via IP geolocation |
+| 🏙️ **City Selection** | 20+ Indonesian cities & 10 international cities |
+| 🔔 **Notifications** | Desktop notifications for Imsak & Iftar |
+| ⏰ **Countdown** | Countdown timer to next Imsak / Iftar |
+| 🕌 **Full Schedule** | 7 prayer times (Imsak, Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha) |
+| 🔄 **Auto Refresh** | Automatic update every 30 seconds |
+| 🔒 **Single Instance** | Only 1 instance runs at a time, automatically closes the old one |
 
 ---
 
-## 📁 Struktur Proyek
+## 📁 Project Structure
 
 ```
 ramadhan-windows-taskbar/
@@ -68,9 +68,9 @@ ramadhan-windows-taskbar/
 
 ---
 
-## 🚀 Instalasi & Menjalankan
+## 🚀 Installation & Running
 
-### Prasyarat
+### Prerequisites
 
 - **Python 3.10+**
 - **Windows 10/11**
@@ -78,11 +78,11 @@ ramadhan-windows-taskbar/
 ### Setup
 
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/iqbbal/Ramadan-Fasting-Schedule.git
 cd Ramadan-Fasting-Schedule
 
-# Buat virtual environment
+# Create a virtual environment
 python -m venv .venv
 .venv\Scripts\activate
 
@@ -90,29 +90,29 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### Menjalankan
+### Running
 
 ```bash
 python main.py
 ```
 
-Aplikasi akan muncul sebagai ikon 🌙 di system tray (pojok kanan bawah taskbar).
+The app will appear as a 🌙 icon in the system tray (bottom-right corner of the taskbar).
 
 ---
 
-## 🖱️ Cara Penggunaan
+## 🖱️ Usage
 
-| Aksi | Fungsi |
-|------|--------|
-| **Hover** ikon | Melihat tooltip jadwal & countdown |
-| **Klik kiri** ikon | Membuka dark popup menu |
-| **Klik kanan** ikon | Membuka native menu dengan jadwal lengkap |
+| Action | Function |
+|--------|----------|
+| **Hover** over icon | View tooltip with schedule & countdown |
+| **Left-click** icon | Open dark popup menu |
+| **Right-click** icon | Open native menu with full schedule |
 
 ---
 
-## ⚙️ Konfigurasi
+## ⚙️ Configuration
 
-File `config.json` menyimpan pengaturan:
+Settings are stored in `config.json`:
 
 ```json
 {
@@ -124,21 +124,21 @@ File `config.json` menyimpan pengaturan:
 }
 ```
 
-| Parameter | Deskripsi |
-|-----------|-----------|
-| `location_mode` | `"auto"` (IP) atau `"manual"` (pilih kota) |
-| `calculation_method` | `20` = Kementerian Agama RI (KEMENAG) |
-| `notification_before_imsak_minutes` | Notifikasi N menit sebelum Imsak |
-| `notification_at_iftar` | Notifikasi saat waktu berbuka |
+| Parameter | Description |
+|-----------|-------------|
+| `location_mode` | `"auto"` (IP-based) or `"manual"` (select city) |
+| `calculation_method` | `20` = Ministry of Religious Affairs of Indonesia (KEMENAG) |
+| `notification_before_imsak_minutes` | Notify N minutes before Imsak |
+| `notification_at_iftar` | Notify when it's time to break the fast |
 
 ---
 
 ## 📦 Dependencies
 
-| Package | Fungsi |
-|---------|--------|
+| Package | Purpose |
+|---------|---------|
 | `pystray` | System tray icon |
-| `Pillow` | Pembuatan ikon dinamis |
+| `Pillow` | Dynamic icon generation |
 | `requests` | HTTP API calls |
 | `win10toast` | Desktop notifications |
 | `psutil` | Single-instance management |
@@ -148,12 +148,8 @@ File `config.json` menyimpan pengaturan:
 
 ## 🕌 API
 
-Menggunakan [Aladhan Prayer Times API](https://aladhan.com/prayer-times-api) (gratis, tanpa API key).
+Uses the [Aladhan Prayer Times API](https://aladhan.com/prayer-times-api) (free, no API key required).
 
-Metode perhitungan default: **Kementerian Agama Republik Indonesia (KEMENAG)**.
+Default calculation method: **Ministry of Religious Affairs of Indonesia (KEMENAG)**.
 
 ---
-
-## 📄 Lisensi
-
-MIT License — Silakan digunakan dan dimodifikasi sesuai kebutuhan.
