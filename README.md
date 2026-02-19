@@ -7,9 +7,9 @@ Aplikasi system tray Windows yang menampilkan jadwal puasa Ramadhan secara real-
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 <p align="center">
-  <img src="images/ramadan_tray_idle.png" alt="Tray Idle" width="350"/>
-  &nbsp;&nbsp;
   <img src="images/ramadan_tray_active.png" alt="Tray Active" width="350"/>
+  &nbsp;&nbsp;
+  <img src="images/ramadan_tray_idle.png" alt="Tray Idle" width="350"/>
 </p>
 
 ---
