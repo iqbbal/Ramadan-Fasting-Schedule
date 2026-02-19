@@ -258,7 +258,7 @@ def build_dark_menu(app):
     Returns:
         DarkPopupMenu instance ready to show
     """
-    from prayer_times_service import (
+    from src.services.prayer_times import (
         PRAYER_LABELS, PRAYER_KEYS, get_time_remaining, format_countdown,
     )
 

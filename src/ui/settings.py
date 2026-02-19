@@ -6,7 +6,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import threading
 
-from config_manager import (
+from src.config.manager import (
     load_config,
     save_config,
     CALCULATION_METHODS,
@@ -14,7 +14,7 @@ from config_manager import (
     INTERNATIONAL_CITIES,
     get_all_cities,
 )
-from location_service import get_location_by_ip
+from src.services.location import get_location_by_ip
 
 
 class SettingsWindow:
@@ -47,7 +47,7 @@ class SettingsWindow:
 
         # Try to set icon
         try:
-            from icon_generator import create_moon_icon
+            from src.ui.icon import create_moon_icon
             import tempfile, os
             icon = create_moon_icon(32)
             icon_path = os.path.join(tempfile.gettempdir(), "ramadan_settings_icon.ico")

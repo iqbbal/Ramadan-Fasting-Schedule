@@ -3,8 +3,6 @@ Icon generator for the Ramadan Fasting Schedule app.
 Creates dynamic system tray icons showing countdown or moon symbol.
 """
 from PIL import Image, ImageDraw, ImageFont
-import os
-import sys
 
 
 def get_font(size=12):

@@ -1,142 +1,153 @@
-# 🌙 Jadwal Puasa Ramadhan - Windows Taskbar App
+# 🌙 Ramadan Fasting Schedule — Windows Taskbar App
 
-Aplikasi system tray (taskbar) Windows untuk menampilkan jadwal puasa Ramadhan berdasarkan geolokasi IP atau pilihan kota manual.
+Aplikasi system tray Windows yang menampilkan jadwal puasa Ramadhan secara real-time berdasarkan lokasi.
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![Platform](https://img.shields.io/badge/Platform-Windows-0078D6.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
+![Windows](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+---
 
 ## ✨ Fitur
 
-- 🕐 **System Tray Icon** - Ikon bulan sabit di taskbar dengan countdown
-- 📋 **Menu Jadwal** - Klik kanan untuk melihat semua waktu shalat
-- 🌍 **Auto Geolokasi** - Deteksi lokasi otomatis via IP
-- 📍 **Pilih Kota** - 20+ kota Indonesia & internasional
-- 🔔 **Notifikasi Desktop** - Alert sebelum Imsak & saat Berbuka
-- ⏰ **Countdown** - Hitung mundur ke Imsak/Iftar
-- 🕌 **Metode KEMENAG** - Perhitungan resmi Kementerian Agama RI
-- 🌙 **Hijriyah** - Menampilkan tanggal Hijriyah
+| Fitur | Deskripsi |
+|-------|-----------|
+| 🌙 **System Tray Icon** | Ikon bulan sabit dengan countdown dinamis |
+| 📋 **Dark Menu** | Klik kiri → popup menu gelap bertema modern |
+| 📋 **Native Menu** | Klik kanan → menu native Windows dengan jadwal lengkap |
+| 📍 **Auto Lokasi** | Deteksi lokasi otomatis via IP geolocation |
+| 🏙️ **Pilihan Kota** | 20+ kota Indonesia & 10 kota internasional |
+| 🔔 **Notifikasi** | Desktop notification untuk Imsak & Berbuka |
+| ⏰ **Countdown** | Hitung mundur ke waktu Imsak / Berbuka |
+| 🕌 **Jadwal Lengkap** | 7 waktu shalat (Imsak, Subuh, Syuruq, Dzuhur, Ashar, Maghrib, Isya) |
+| 🔄 **Auto Refresh** | Update otomatis setiap 30 detik |
+| 🔒 **Single Instance** | Hanya 1 instance berjalan, otomatis tutup yang lama |
 
-## 🚀 Quick Start
+---
 
-### Prerequisites
-
-- Python 3.8 atau lebih baru
-- Windows 10/11
-
-### Instalasi
-
-```bash
-# Clone atau download project
-cd ramadhan-windows-taskbar
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Jalankan aplikasi
-python main.py
-```
-
-## 📁 Struktur Project
+## 📁 Struktur Proyek
 
 ```
 ramadhan-windows-taskbar/
-├── main.py                 # Entry point - System tray app
-├── config_manager.py       # Manajemen konfigurasi & database kota
-├── location_service.py     # Geolokasi IP & koordinat kota
-├── prayer_times_service.py # API Aladhan untuk jadwal shalat
-├── notification_service.py # Notifikasi desktop Windows
-├── icon_generator.py       # Generator ikon dynamic untuk tray
-├── settings_window.py      # UI pengaturan (Tkinter)
-├── config.json             # File konfigurasi user
-├── requirements.txt        # Python dependencies
-└── README.md               # Dokumentasi
+├── main.py                          # Entry point
+├── config.json                      # User configuration
+├── requirements.txt                 # Python dependencies
+├── README.md
+├── .gitignore
+│
+├── src/                             # Source code
+│   ├── __init__.py
+│   ├── app.py                       # RamadhanTrayApp class & single instance
+│   │
+│   ├── config/                      # Configuration
+│   │   ├── __init__.py
+│   │   └── manager.py              # Config load/save, city database
+│   │
+│   ├── services/                    # Business logic
+│   │   ├── __init__.py
+│   │   ├── location.py             # IP geolocation & city lookup
+│   │   ├── prayer_times.py         # Aladhan API integration
+│   │   └── notification.py         # Desktop notifications
+│   │
+│   └── ui/                          # User interface
+│       ├── __init__.py
+│       ├── icon.py                  # Dynamic tray icon generator
+│       ├── menu.py                  # Custom dark popup menu
+│       └── settings.py             # Settings window (Tkinter)
+│
+└── tests/                           # Test suite
+    ├── __init__.py
+    └── test_integration.py          # Integration tests
 ```
 
-## 🛠️ Tech Stack
+---
 
-| Komponen | Teknologi | Alasan |
-|----------|-----------|--------|
-| **Language** | Python 3 | Mudah di-maintain, rich ecosystem |
-| **System Tray** | pystray | Cross-platform, ringan |
-| **Icon Generation** | Pillow (PIL) | Dynamic icon creation |
-| **Settings UI** | Tkinter | Built-in Python, zero dependency |
-| **Prayer Times API** | [Aladhan API](https://aladhan.com/prayer-times-api) | Gratis, tanpa API key, akurat |
-| **Geolokasi** | ip-api.com | Gratis, tanpa registrasi |
-| **Notifications** | win10toast | Native Windows 10/11 toast |
+## 🚀 Instalasi & Menjalankan
+
+### Prasyarat
+
+- **Python 3.10+**
+- **Windows 10/11**
+
+### Setup
+
+```bash
+# Clone repository
+git clone https://github.com/iqbbal/Ramadan-Fasting-Schedule.git
+cd Ramadan-Fasting-Schedule
+
+# Buat virtual environment
+python -m venv .venv
+.venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Menjalankan
+
+```bash
+python main.py
+```
+
+Aplikasi akan muncul sebagai ikon 🌙 di system tray (pojok kanan bawah taskbar).
+
+---
+
+## 🖱️ Cara Penggunaan
+
+| Aksi | Fungsi |
+|------|--------|
+| **Hover** ikon | Melihat tooltip jadwal & countdown |
+| **Klik kiri** ikon | Membuka dark popup menu |
+| **Klik kanan** ikon | Membuka native menu dengan jadwal lengkap |
+
+---
 
 ## ⚙️ Konfigurasi
 
-### Mode Lokasi
+File `config.json` menyimpan pengaturan:
 
-1. **Otomatis (IP)** - Aplikasi mendeteksi lokasi dari IP address
-2. **Manual (Kota)** - Pilih dari 20+ kota tersedia
-
-### Kota Tersedia
-
-**Indonesia:** Jakarta, Surabaya, Bandung, Medan, Semarang, Makassar, Yogyakarta, Palembang, Denpasar, Balikpapan, Banjarmasin, Pontianak, Aceh, Padang, Pekanbaru, Manado, Malang, Solo, Mataram, Jayapura
-
-**Internasional:** Makkah, Madinah, Kuala Lumpur, Singapore, Istanbul, Dubai, London, Tokyo, Sydney, New York
-
-### Metode Perhitungan
-
-Default: **Kementerian Agama RI (KEMENAG)**
-
-Tersedia 15+ metode perhitungan lainnya termasuk MWL, ISNA, Umm Al-Qura, dll.
-
-## 📸 Cara Penggunaan
-
-1. **Jalankan** `python main.py`
-2. Ikon 🌙 akan muncul di system tray (taskbar)
-3. **Klik kanan** pada ikon untuk melihat jadwal
-4. Pilih **⚙️ Pengaturan** untuk konfigurasi
-5. Aplikasi akan mengirim **notifikasi** otomatis
-
-## 🔔 Notifikasi
-
-- **Sebelum Imsak**: Notifikasi X menit sebelum waktu Imsak (configurable)
-- **Saat Berbuka**: Notifikasi saat waktu Maghrib tiba
-- Notifikasi menggunakan Windows 10/11 native toast
-
-## 📝 API yang Digunakan
-
-### Aladhan API (Prayer Times)
-- **URL**: `https://api.aladhan.com/v1/timings`
-- **Limit**: Unlimited (fair use)
-- **Auth**: Tidak perlu API key
-- **Docs**: https://aladhan.com/prayer-times-api
-
-### ip-api.com (Geolocation)
-- **URL**: `http://ip-api.com/json/`
-- **Limit**: 45 requests/menit
-- **Auth**: Tidak perlu registrasi
-
-## 🏗️ Development
-
-### Menambah Kota Baru
-
-Edit `config_manager.py`, tambahkan ke `INDONESIAN_CITIES` atau `INTERNATIONAL_CITIES`:
-
-```python
-INDONESIAN_CITIES = {
-    ...
-    "Kota Baru": {"lat": -X.XXXX, "lng": XXX.XXXX, "country": "Indonesia"},
+```json
+{
+    "location_mode": "auto",
+    "city": "",
+    "calculation_method": 20,
+    "notification_before_imsak_minutes": 10,
+    "notification_at_iftar": true
 }
 ```
 
-### Build Executable
+| Parameter | Deskripsi |
+|-----------|-----------|
+| `location_mode` | `"auto"` (IP) atau `"manual"` (pilih kota) |
+| `calculation_method` | `20` = Kementerian Agama RI (KEMENAG) |
+| `notification_before_imsak_minutes` | Notifikasi N menit sebelum Imsak |
+| `notification_at_iftar` | Notifikasi saat waktu berbuka |
 
-```bash
-pip install pyinstaller
-pyinstaller --onefile --windowed --icon=icon.ico --name="JadwalPuasa" main.py
-```
+---
 
-## 📄 License
+## 📦 Dependencies
 
-MIT License - Silakan gunakan dan modifikasi sesuai kebutuhan.
+| Package | Fungsi |
+|---------|--------|
+| `pystray` | System tray icon |
+| `Pillow` | Pembuatan ikon dinamis |
+| `requests` | HTTP API calls |
+| `win10toast` | Desktop notifications |
+| `psutil` | Single-instance management |
+| `schedule` | Task scheduling |
 
-## 🤲 Doa
+---
 
-> *"Allahumma laka sumtu wa 'ala rizqika aftartu"*
-> 
-> Ya Allah, untuk-Mu aku berpuasa dan dengan rezeki-Mu aku berbuka.
+## 🕌 API
+
+Menggunakan [Aladhan Prayer Times API](https://aladhan.com/prayer-times-api) (gratis, tanpa API key).
+
+Metode perhitungan default: **Kementerian Agama Republik Indonesia (KEMENAG)**.
+
+---
+
+## 📄 Lisensi
+
+MIT License — Silakan digunakan dan dimodifikasi sesuai kebutuhan.

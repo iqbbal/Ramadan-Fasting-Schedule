@@ -80,13 +80,17 @@ INTERNATIONAL_CITIES = {
 }
 
 
+def _get_project_root():
+    """Get the project root directory."""
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    # Go up from src/config/manager.py to project root
+    return os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
 def get_config_path():
     """Get the absolute path to the config file."""
-    if getattr(sys, 'frozen', False):
-        base_dir = os.path.dirname(sys.executable)
-    else:
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-    return os.path.join(base_dir, CONFIG_FILE)
+    return os.path.join(_get_project_root(), CONFIG_FILE)
 
 
 def load_config():

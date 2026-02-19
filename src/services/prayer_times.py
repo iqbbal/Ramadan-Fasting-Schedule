@@ -4,7 +4,7 @@ Fetches prayer times from the Aladhan API.
 """
 import requests
 from datetime import datetime, date
-from config_manager import load_config
+from src.config.manager import load_config
 
 
 # Prayer time labels in Indonesian

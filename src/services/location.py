@@ -3,7 +3,7 @@ Location service for the Ramadan Fasting Schedule app.
 Handles IP-based geolocation and manual city coordinates.
 """
 import requests
-from config_manager import load_config, INDONESIAN_CITIES, INTERNATIONAL_CITIES
+from src.config.manager import load_config, INDONESIAN_CITIES, INTERNATIONAL_CITIES
 
 
 def get_location_by_ip():
