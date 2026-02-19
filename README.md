@@ -153,3 +153,43 @@ Uses the [Aladhan Prayer Times API](https://aladhan.com/prayer-times-api) (free,
 Default calculation method: **Ministry of Religious Affairs of Indonesia (KEMENAG)**.
 
 ---
+
+## 🏗️ Development
+
+### Adding a New City
+
+Edit `src/config/manager.py`, add to `INDONESIAN_CITIES` or `INTERNATIONAL_CITIES`:
+
+```python
+INDONESIAN_CITIES = {
+    ...
+    "New City": {"lat": -X.XXXX, "lng": XXX.XXXX, "country": "Indonesia"},
+}
+```
+
+### Build Executable
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile --windowed --icon=icon.ico --name="RamadanSchedule" main.py
+```
+
+The executable will be generated in the `dist/` folder.
+
+---
+
+## 🤲 Dua for Breaking the Fast
+
+<div align="center">
+
+### ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللهُ
+
+*"Dzahabazh-zhama'u wabtallatil-'uruuqu wa tsabatal-ajru insyaa-Allah"*
+
+**"The thirst has gone, the veins are moistened, and the reward is confirmed, if Allah wills."**
+
+*(HR. Abu Dawud no. 2357)*
+
+</div>
+
+---
